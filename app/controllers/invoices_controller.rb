@@ -15,7 +15,8 @@ class InvoicesController < ApplicationController
   # GET /invoices/new
   def new
     @invoice = Invoice.new
-    2.times { @invoice.build_items } 
+    2.times { @invoice.build_items }
+    @invoice.sales_tax = 10 
   end
 
   # GET /invoices/1/edit

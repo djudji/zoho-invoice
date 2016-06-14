@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load', function() {
-  $('input[name*=sales_tax]').val('10');
   
   item_destroy_event();
   item_add_event();
