@@ -1,0 +1,8 @@
+<tr data_id="<%= ff.index %>">
+  <td class="item-description"><%= ff.text_area :description, placeholder: "Enter item name/description" %></td>
+  <td class ="item-quantity"><%= ff.number_field :quantity %></td>
+  <td class="item-rate"><%= ff.text_field :rate %></td>
+  <td class="item-amount"><%= ff.text_field :amount, readonly: true %></td>
+  <td class="item-remove"><%= ff.hidden_field :_destroy %></td>
+  <td><%= link_to 'x', '#', class:"item-destroy" %></td>
+</tr>

@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Invoices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Company name</th>
+      <th>Person name</th>
+      <th>Company address</th>
+      <th>City</th>
+      <th>Country</th>
+      <th>Client company</th>
+      <th>Client address</th>
+      <th>Client city</th>
+      <th>Client country</th>
+      <th>Invoice number</th>
+      <th>Invoice date</th>
+      <th>Due date</th>
+      <th>Notes</th>
+      <th>Terms</th>
+      <th>Sub total</th>
+      <th>Sales tax</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.title %></td>
+        <td><%= invoice.company_name %></td>
+        <td><%= invoice.person_name %></td>
+        <td><%= invoice.company_address %></td>
+        <td><%= invoice.city %></td>
+        <td><%= invoice.country %></td>
+        <td><%= invoice.client_company %></td>
+        <td><%= invoice.client_address %></td>
+        <td><%= invoice.client_city %></td>
+        <td><%= invoice.client_country %></td>
+        <td><%= invoice.invoice_number %></td>
+        <td><%= invoice.invoice_date %></td>
+        <td><%= invoice.due_date %></td>
+        <td><%= invoice.notes %></td>
+        <td><%= invoice.terms %></td>
+        <td><%= invoice.sub_total %></td>
+        <td><%= invoice.sales_tax %></td>
+        <td><%= invoice.total %></td>
+        <td><%= link_to 'Show', invoice %></td>
+        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Invoice', new_invoice_path %>

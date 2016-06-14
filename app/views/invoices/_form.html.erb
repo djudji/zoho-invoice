@@ -1,0 +1,141 @@
+<div class="container">
+  <%= form_for(invoice) do |f| %>
+    <% if invoice.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+        <ul>
+        <% invoice.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row">
+      <div id="company-info">
+        <div class="field">
+          <%= f.text_field :company_name, placeholder: "Your Company" %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :person_name, placeholder: "Your Name" %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :company_address, placeholder: "Company's Address" %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :city, placeholder: "City, State Zip" %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :country, placeholder: "Country" %>
+        </div>
+      </div>
+
+      <div id="invoice-title">
+        <div class="field">
+          <%= f.text_field :title, placeholder: "INVOICE" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="client-company">
+        <div class="field">
+          <%= f.text_field :client_company, placeholder: "Your Client's Company" %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :client_address, placeholder: "Client's Address" %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :client_city, placeholder: "City, State Zip" %>
+        </div>
+
+        <div class="field">
+          <%= f.text_field :client_country, placeholder: "Country" %>
+        </div>
+      </div>
+      <div id="invoice-info">
+        <div class="field">
+          <%= f.label  "Invoice#" %>
+          <%= f.text_field :invoice_number, placeholder: :invoice_number %>
+        </div>
+
+        <div class="field">
+          <%= f.label :invoice_date %>
+          <%= f.date_select :invoice_date %>
+        </div>
+
+        <div class="field">
+          <%= f.label :due_date %>
+          <%= f.date_select :due_date %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div id="invoice-items">
+          <table id="items">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Amount</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <%= f.fields_for :items do |items_form| %>
+                <%= render 'item_fields', ff: items_form %>
+              <% end %>
+            </tbody>
+          </table>
+          <%= link_to_add_items 'New Item', f, :items %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div id="invoice-total">
+        <div class="field">
+          <%= f.label :sub_total %>
+          <%= f.text_field :sub_total, readonly: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label :sales_tax %>
+          <%= f.text_field :sales_tax %>
+        </div>
+
+        <div class="field">
+          <%= f.label :total %>
+          <%= f.text_field :total, readonly: true %>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="row">
+      <div id="invoice-footer">
+        <div class="field">
+          <%= f.label "Notes" %><br>
+          <%= f.text_area :notes, placeholder: "It was great doing business with you." %>
+        </div>
+
+        <div class="field">
+          <%= f.label "Terms & Conditions" %><br>
+          <%= f.text_area :terms, placeholder: "Please make the payment by the due date." %>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+</div>

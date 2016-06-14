@@ -1,0 +1,127 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+      <div id="company-info">
+        <div class="field">
+          <input type="text" name="company_name" value="<%= @invoice.company_name %>"> 
+        </div>
+
+        <div class="field">
+          <input type="text" name="person_name" value="<%= @invoice.person_name %>"> 
+        </div>
+
+        <div class="field">
+          <input type="text" name="company_address" value="<%= @invoice.company_address %>"> 
+        </div>
+
+        <div class="field">
+          <input type="text" name="city" value="<%= @invoice.city %>"> 
+        </div>
+
+        <div class="field">
+          <input type="text" name="country" value="<%= @invoice.country %>"> 
+        </div>
+      </div>
+
+      <div id="invoice-title">
+        <div class="field">
+          <input type="text" name="title" value="<%= @invoice.title %>"> 
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="client-company">
+        <div class="field">
+          <input type="text" name="client_company" value="<%= @invoice.client_company %>"> 
+        </div>
+
+        <div class="field">
+          <input type="text" name="client_address" value="<%= @invoice.client_address %>"> 
+        </div>
+
+        <div class="field">
+          <input type="text" name="client_city" value="<%= @invoice.client_city %>"> 
+        </div>
+
+        <div class="field">
+          <input type="text" name="client_country" value="<%= @invoice.client_country %>"> 
+        </div>
+      </div>
+      <div id="invoice-info">
+        <div class="field">
+          Invoice# <input type="text" name="invoice_number" value="<%= @invoice.invoice_number %>"> 
+        </div>
+
+        <div class="field">
+          Invoice Date <input type="text" name="invoice_date" value="<%= @invoice.invoice_date %>"> 
+        </div>
+
+        <div class="field">
+          Due Date <input type="text" name="due_date" value="<%= @invoice.due_date %>">
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div id="invoice-items">
+          <table id="items">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Amount</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @invoice.items.each do |item| %>
+                <tr>
+                  <td class="item-description"><textarea name="description"><%= item.description %></textarea></td>
+                  <td class ="item-quantity"><input type="text" name="quantity" value="<%= item.quantity %>"></td>
+                  <td class="item-rate"><input type="text" name="rate" value="<%= item.rate %>"></td>
+                  <td class="item-amount"><input type="text" name="amount" value="<%= item.amount %>"></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div id="invoice-total">
+        <div class="field">
+          Sub total: <input type="text" name="sub_total" value="<%= @invoice.sub_total %>">
+        </div>
+
+        <div class="field">
+          Sales tax: <input type="text" name="sales_tax" value="<%= @invoice.sales_tax %>">
+        </div>
+
+        <div class="field">
+          Total: <input type="text" name="total" value="<%= @invoice.total %>">
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="row">
+      <div id="invoice-footer">
+        <div class="field">
+          Notes<br>
+          <textarea name="notes"><%= @invoice.notes %></textarea>
+        </div>
+
+        <div class="field">
+          Terms &amp; Conditions<br>
+          <textarea name="terms"><%= @invoice.terms %></textarea>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

@@ -1,0 +1,114 @@
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 66.6666667%;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+  width: 80%;
+  display: inline-block;
+}
+
+#company-info {
+  width: 51%;
+  float: left;
+  display: table-cell;
+}
+
+#invoice-title {
+  width: 49%;
+  float: right;
+  display: table-cell;
+}
+
+#client-company {
+  width: 51%;
+  float: left;
+}
+#client-company {}
+
+#invoice-info {
+  width: 49%;
+  float: right;
+  display: table-cell;
+}
+
+#invoice-items {
+  position: relative;
+  width: 100%;
+}
+
+#invoice-total {
+  display: table-cell;
+  float: right;
+}
+
+#invoice-footer {
+  width: 100%;
+  margin: 0 auto;
+}
+
+textarea {
+  resize: none;
+}
+
+input {
+  line-height: 18px;
+  resize: none;
+}
+
+textarea, input[type="text"], input[type="number"] {
+  border: none;
+  font-size: 14px;
+  width: 99%;
+  -webkit-transition: all 0.10s ease-in-out;
+  -moz-transition: all 0.10s ease-in-out;
+  -ms-transition: all 0.10s ease-in-out;
+  -o-transition: all 0.10s ease-in-out;
+}
+
+textarea:hover, input:hover {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+
+#invoice-footer textarea {
+  width: 100%;
+}
+
+table#items {
+  width: 100%;
+}
+
+table#items tbody tr td:first-child {
+  width: 50%;
+}
+
+#items input {
+  width: 100%;
+  text-align: right;
+}
+
+input[name*='sub_total'], input[name*='sales_tax'], input[name*='total']{
+  text-align: right;
+}
+
+.item-destroy input[type='checkbox'][id~='destroy'] {
+  cursor:pointer;
+  color: #fff;
+  border: 1px solid #AEAEAE;
+  border-radius: 30px;
+  background: #605F61;
+  font-size: 31px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
+}
+
+.item-destroy input[type='checkbox'][id~='destroy'] + label:before {
+    content:"x";
+}
