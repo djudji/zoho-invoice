@@ -1,24 +1,14 @@
-# README
+# Ruby on Rails - Zoho Invoice web app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Web application that resembles [Free Invoice Generator] app from Zoho, with a little less styles.
 
-Things you may want to cover:
+Check out the [Zoho Invoice Generator on Heroku]!
 
-* Ruby version
 
-* System dependencies
+Built with:
+- [Rails 5][rails]
 
-* Configuration
+  [rails]:    <http://rubyonrails.org/>
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Free Invoice Generator]: https://www.zoho.com/invoice/invoice-generator.html
+[Zoho Invoice Generator on Heroku]: https://zoho-invoice.herokuapp.com/
